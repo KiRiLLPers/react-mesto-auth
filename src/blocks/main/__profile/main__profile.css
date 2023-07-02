@@ -1,0 +1,9 @@
+.main__profile {
+  padding: 40px 0 51px;
+}
+
+@media screen and (max-width: 320px) {
+  .main__profile {
+    padding-bottom: 37px;
+  }
+}

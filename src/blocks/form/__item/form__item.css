@@ -1,0 +1,13 @@
+.form__item {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 11px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+/* .form__item:nth-child(3) {
+  margin-top: 28px;
+} */

@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+}
+
+.header::after {
+  content: '';
+  display: block;
+  border-bottom: 1px solid #545454;
+  opacity: .7;
+  padding-top: 41px;
+}
+
+@media screen and (max-width: 320px) {
+  .header::after {
+    padding-top: 32px;
+  }
+}

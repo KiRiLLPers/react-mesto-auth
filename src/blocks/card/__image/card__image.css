@@ -1,0 +1,8 @@
+.card__image {
+  display: block;
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  cursor: zoom-in;
+}

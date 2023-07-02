@@ -1,0 +1,8 @@
+.card__wrap {
+  max-width: 246px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin:  24px 0 0 21px;
+}
+

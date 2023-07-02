@@ -1,0 +1,9 @@
+.photos__wrap {
+  width: 100%;
+  box-sizing: border-box;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 282px);
+  justify-content: center;
+  gap: 20px 17px;
+}

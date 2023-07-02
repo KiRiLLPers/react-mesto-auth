@@ -1,0 +1,9 @@
+.main__photos {
+  padding-bottom: 67px;
+}
+
+@media screen and (max-width: 320px) {
+  .main__photos {
+    padding-bottom: 48px;
+  }
+}
