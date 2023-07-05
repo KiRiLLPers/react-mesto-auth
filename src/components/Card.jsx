@@ -1,10 +1,10 @@
-import React, { useContext, useMemo, useCallback } from "react";
+import React, { useContext, useMemo } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
 const Card = ({ propsCard, onCardClick, onCardLike, onCardDeleteOpenPopup }) => {
   const currentUser = useContext(CurrentUserContext);
-  const isOwn = propsCard.owner._id === currentUser._id;
-  const isLiked = propsCard.likes.some((i) => i._id === currentUser._id);
+  const isOwn = propsCard.owner._id === currentUser.user._id;
+  const isLiked = propsCard.likes.some((i) => i._id === currentUser.user._id);
 
   const handleClick = () => {
     onCardClick(propsCard);

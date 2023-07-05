@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import Header from "./Header";
 import Main from "./Main";
 
@@ -12,6 +12,10 @@ import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 import DeleteCardsPopup from "./DeleteCardsPopup";
+import Login from "./Login/Login";
+import Register from "./Register/Register";
+import ProtectedRouteElement from "./ProtectedRouteElement/ProtectedRouteElement";
+import * as auth from "../utils/auth";
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
@@ -28,17 +32,24 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState({});
 
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+
   useEffect(() => {
-    Promise.all([api.getInitialCards(), api.getUserInfo()])
-      .then(([cards, user]) => {
-        cards.forEach((card) => {
-          card.myProfileId = user._id;
-        });
-        setCurrentUser(user);
-        setCards(cards);
-      })
-      .catch(console.error);
-  }, []);
+    handleTokenCheck();
+    if (loggedIn) {
+      Promise.all([api.getInitialCards(), api.getUserInfo()])
+        .then(([cards, user]) => {
+          cards.forEach((card) => {
+            card.myProfileId = user._id;
+          });
+          setCurrentUser(user);
+          setCards(cards);
+        })
+        .catch(console.error);
+    }
+  }, [loggedIn, email]);
 
   const handleEditAvatarClick = () => {
     setEditAvatarPopupOpen(true);
@@ -129,19 +140,70 @@ function App() {
       .finally(() => setLoading(false));
   }
 
+  function handleLogin({ username }) {
+    setLoggedIn(true);
+    setEmail(username);
+  }
+
+  function handleTokenCheck() {
+    if (localStorage.getItem("jwt")) {
+      const jwt = localStorage.getItem("jwt");
+      auth
+        .checkToken(jwt)
+        .then((res) => {
+          if (res) {
+            setLoggedIn(true);
+            setEmail(res.data.email);
+            navigate("/", { replace: true });
+          }
+        })
+        .catch(console.error);
+    }
+  }
+
   return (
-    <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={{ user: currentUser }}>
       <div className="content page__content">
-        <Header />
-        <Main
-          onEditProfile={handleEditProfileClick}
-          onAddPlace={handleAddPlaceClick}
-          onEditAvatar={handleEditAvatarClick}
-          onDeleteCardsPopup={handleDeleteCardsOpen}
-          onCardClick={handleCardClick}
-          onCardLike={handleCardLike}
-          cards={cards}
-        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Header loggedIn={loggedIn} email={email} />
+                <ProtectedRouteElement
+                  element={Main}
+                  onEditProfile={handleEditProfileClick}
+                  onAddPlace={handleAddPlaceClick}
+                  onEditAvatar={handleEditAvatarClick}
+                  onDeleteCardsPopup={handleDeleteCardsOpen}
+                  onCardClick={handleCardClick}
+                  onCardLike={handleCardLike}
+                  cards={cards}
+                  loggedIn={loggedIn}
+                />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/signin"
+            element={
+              <>
+                <Header name={"signin"} />
+                <Login handleLogin={handleLogin} />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/signup"
+            element={
+              <>
+                <Header name={"signup"} />
+                <Register />
+              </>
+            }
+          ></Route>
+          <Route path="*" element={<Navigate to="/" replace />}></Route>
+        </Routes>
         <Footer />
         <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} isLoading={isLoading} />
         <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddPlaceSubmit} isLoading={isLoading} />

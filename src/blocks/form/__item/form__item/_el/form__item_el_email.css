@@ -1,0 +1,9 @@
+.form_item_el_email {
+  border-bottom: 2px solid #CCC;
+  background-color: #000;
+  color: #FFFFFF;
+}
+
+.form_item_el_email::placeholder {
+  color: #CCCCCC;
+}

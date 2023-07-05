@@ -11,7 +11,7 @@ const useForm = () => {
 
     setErrors((errors) => ({ ...errors, [e.target.name]: e.target.validationMessage }));
 
-    setisInputValid(() => ({ ...e.target.validity.valid, [e.target.name]: e.target.validity.valid }));
+    setisInputValid(() => ({ ...isInputValid, [e.target.name]: e.target.validity.valid }));
 
     setIsValid(e.target.form.checkValidity());
   };
