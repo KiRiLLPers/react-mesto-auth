@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.a3f38f39.css",
-    "main.js": "./static/js/main.f0db9f2f.js",
+    "main.css": "./static/css/main.15022684.css",
+    "main.js": "./static/js/main.bc3a66ab.js",
     "static/js/787.5530211c.chunk.js": "./static/js/787.5530211c.chunk.js",
     "static/media/Inter-Black.ttf": "./static/media/Inter-Black.143c28420846d45c5834.ttf",
     "static/media/Inter-Medium.ttf": "./static/media/Inter-Medium.6dcbc9bed1ec438907ee.ttf",
@@ -16,15 +16,16 @@
     "static/media/Union-success.svg": "./static/media/Union-success.1b6082f862eac35e2514.svg",
     "static/media/like-active.svg": "./static/media/like-active.35948469632d0421d697.svg",
     "index.html": "./index.html",
+    "static/media/burger-menu.svg": "./static/media/burger-menu.07a6bef4d1b506d42dfd.svg",
     "static/media/edit-button-main.svg": "./static/media/edit-button-main.6c7bf05444b9793fdf6e.svg",
     "static/media/Close-Icon.svg": "./static/media/Close-Icon.039f1f5203f653b4bacd.svg",
     "static/media/button-plus.svg": "./static/media/button-plus.bed8c136e13907f5eefb.svg",
-    "main.a3f38f39.css.map": "./static/css/main.a3f38f39.css.map",
-    "main.f0db9f2f.js.map": "./static/js/main.f0db9f2f.js.map",
+    "main.15022684.css.map": "./static/css/main.15022684.css.map",
+    "main.bc3a66ab.js.map": "./static/js/main.bc3a66ab.js.map",
     "787.5530211c.chunk.js.map": "./static/js/787.5530211c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3f38f39.css",
-    "static/js/main.f0db9f2f.js"
+    "static/css/main.15022684.css",
+    "static/js/main.bc3a66ab.js"
   ]
 }
