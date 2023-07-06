@@ -60,7 +60,7 @@ const Login = ({ handleLogin }) => {
 
   return (
     <>
-      <Form title={"Вход"} buttonText={"Войти"} classHeading={"form-login_heading"} classBtnLog={"form__btn_theme_login"} isValid={isValid} onSubmit={handleSubmit} isLoading={isLoading}>
+      <Form title={"Вход"} buttonText={"Войти"} classHeading={"form__login-heading"} classBtnLog={"form__btn_theme_login"} isValid={isValid} onSubmit={handleSubmit} isLoading={isLoading}>
         <input
           className={`form__item form_item_el_email ${isInputValid.username === undefined || isInputValid.username ? "" : "form__item_type_error"}`}
           type="email"

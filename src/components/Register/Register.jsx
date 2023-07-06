@@ -57,7 +57,7 @@ const Register = () => {
       <Form
         title={"Регистрация"}
         buttonText={"Зарегистрироваться"}
-        classHeading={"form-login_heading"}
+        classHeading={"form__login-heading"}
         classBtnLog={"form__btn_theme_login"}
         isValid={isValid}
         onSubmit={handleSubmit}

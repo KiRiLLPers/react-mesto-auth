@@ -1,0 +1,17 @@
+.header__menu-btn {
+  width: 24px;
+  height: 22px;
+  border: none;
+  background-color: transparent;
+  background-image: url(../../../images/burger-menu.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 30px;
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.header__menu-btn:hover {
+  opacity: 0.6;
+}

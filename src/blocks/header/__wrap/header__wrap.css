@@ -1,0 +1,12 @@
+.header__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 45px 0 41px;
+}
+
+@media screen and (max-width: 450px) {
+  .header__wrap {
+    padding: 28px 0 32px;
+  }
+}

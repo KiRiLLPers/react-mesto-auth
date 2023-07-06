@@ -1,0 +1,11 @@
+.form__btn_theme_login {
+  background-color: #FFFFFF;
+  color: black;
+  margin-top: 181px;
+}
+
+@media screen and (max-width: 900px) {
+  .form__btn_theme_login {
+    margin-top: 138px;
+  }
+}

@@ -1,0 +1,23 @@
+.header__navbar-link {
+  color: #FFF;
+  text-align: right;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header__navbar-link:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 900px) {
+  .header__navbar-link {
+    margin-right: calc(27px + (0 - 27) * ((100vw - 320px) / (900 - 320)));
+    font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (900 - 320)));
+  }
+}

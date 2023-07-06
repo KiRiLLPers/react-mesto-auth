@@ -1,0 +1,21 @@
+.form__item_question {
+  max-width: 358px;
+  margin: 0 auto;
+  color: #FFF;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+  margin-top: 15px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.form__item_question:hover {
+  opacity: 0.6;
+}

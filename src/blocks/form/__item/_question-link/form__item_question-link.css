@@ -1,0 +1,10 @@
+.form__item_question-link {
+  margin-left: 5px;
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.form__item_question-link:hover {
+  opacity: 0.6;
+}
