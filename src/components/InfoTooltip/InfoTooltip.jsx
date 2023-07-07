@@ -1,7 +1,7 @@
 import Popup from "../Popup/Popup";
 import useClosePopupByEsc from "../../hooks/useClosePopupByEsc";
 
-const InfoTooltip = ({ isOpenSuccessPopup, onClosePopup, isOpenNotSuccessPopup, title = "Вы успешно зарегистрировались!" }) => {
+const InfoTooltip = ({ isOpenSuccessPopup, onClosePopup, isOpenNotSuccessPopup }) => {
   const handleCloseByOverley = (e) => {
     if (e.target === e.currentTarget) {
       onClosePopup();

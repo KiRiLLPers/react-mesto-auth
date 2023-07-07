@@ -40,7 +40,6 @@ const Header = ({ loggedIn, name, email }) => {
       window.removeEventListener("resize", resizeHandler);
     };
   }, [resizeHandler]);
-  console.log(size);
 
   return (
     <header className="header content__header">

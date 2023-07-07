@@ -33,10 +33,11 @@ const Register = () => {
     auth
       .register(email, password)
       .then((res) => {
-        if (res.error) {
-          setIsOpenNotSuccessPopup(true);
-        } else setIsOpenSuccessPopup(true);
+        if (res.data) {
+          setIsOpenSuccessPopup(true);
+        } else setIsOpenNotSuccessPopup(true);
       })
+      .catch(console.error)
       .finally(() => {
         setIsLoading(false);
       });
@@ -54,42 +55,46 @@ const Register = () => {
 
   return (
     <>
-      <Form
-        title={"Регистрация"}
-        buttonText={"Зарегистрироваться"}
-        classHeading={"form__login-heading"}
-        classBtnLog={"form__btn_theme_login"}
-        isValid={isValid}
-        onSubmit={handleSubmit}
-        isLoading={isLoading}
-      >
-        <input
-          className={`form__item form_item_el_email ${isInputValid.email === undefined || isInputValid.email ? "" : "form__item_type_error"}`}
-          type="email"
-          id="email-reg"
-          name="email"
-          placeholder="Email"
-          required
-          value={formValue.email}
-          disabled={isLoading}
-          onChange={handleChange}
-        />
-        <span className={`form__item-error ${errors.email && "form__item-error_active"}`}>{errors.email}</span>
-        <input
-          className={`form__item form_item_el_password ${isInputValid.password === undefined || isInputValid.password ? "" : "form__item_type_error"}`}
-          type="password"
-          id="password-reg"
-          name="password"
-          placeholder="Пароль"
-          minLength={6}
-          maxLength={30}
-          required
-          value={formValue.password}
-          disabled={isLoading}
-          onChange={handleChange}
-        />
-        <span className={`form__item-error ${errors.password && "form__item-error_active"}`}>{errors.password}</span>
-      </Form>
+      <main className="main content__main">
+        <section>
+          <Form
+            title="Регистрация"
+            buttonText="Зарегистрироваться"
+            classHeading="form__login-heading"
+            classBtnLog="form__btn_theme_login"
+            isValid={isValid}
+            onSubmit={handleSubmit}
+            isLoading={isLoading}
+          >
+            <input
+              className={`form__item form_item_el_email ${isInputValid.email === undefined || isInputValid.email ? "" : "form__item_type_error"}`}
+              type="email"
+              id="email-reg"
+              name="email"
+              placeholder="Email"
+              required
+              value={formValue.email}
+              disabled={isLoading}
+              onChange={handleChange}
+            />
+            <span className={`form__item-error ${errors.email && "form__item-error_active"}`}>{errors.email}</span>
+            <input
+              className={`form__item form_item_el_password ${isInputValid.password === undefined || isInputValid.password ? "" : "form__item_type_error"}`}
+              type="password"
+              id="password-reg"
+              name="password"
+              placeholder="Пароль"
+              minLength={6}
+              maxLength={30}
+              required
+              value={formValue.password}
+              disabled={isLoading}
+              onChange={handleChange}
+            />
+            <span className={`form__item-error ${errors.password && "form__item-error_active"}`}>{errors.password}</span>
+          </Form>
+        </section>
+      </main>
       <InfoTooltip isOpenSuccessPopup={isOpenSuccessPopup} onClosePopup={handleClosePopup} isOpenNotSuccessPopup={isOpenNotSuccessPopup} />
     </>
   );
